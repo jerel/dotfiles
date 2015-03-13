@@ -27,6 +27,7 @@ Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
+Bundle 'christoomey/vim-tmux-navigator'
 
 
 Bundle 'zeis/vim-kolor'
