@@ -132,11 +132,13 @@ set completeopt=menuone,longest,preview
 
 " NERDTree
 map <C-t> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '\.git$']
+let NERDTreeSortOrder = ['\/$', '*', '^\.']
+let NERDTreeShowHidden = 1
 
 " CtrlP
 let g:ctrlp_max_height = 20
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/tmp/*,*/vendor/* 
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/tmp/*,*/vendor/*,*/bower_components/*,*/deps/*,*/rel/* 
 " Refresh the CtrlP cache when a file is written
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
@@ -199,10 +201,19 @@ vmap <C-w> S
 " lazy ':'
 map \ :
 
-let mapleader = ','
+let mapleader = "\<Space>"
 " Toggle paste mode with ", p" to paste from non-vim sources
-nnoremap <Leader>p :set paste!<CR>
-noremap  <Leader>g :GitGutterToggle<CR>
+noremap <Leader>p :set paste!<CR>
+noremap <Leader>g :GitGutterToggle<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :bw<CR>
+nnoremap <Leader>a :bf<CR>
+nnoremap <Leader>s :bp<CR>
+nnoremap <Leader>d :bn<CR>
+nnoremap <Leader>f :bl<CR>
+
+imap <C-i> <Esc>
+
 
 " Strip whitespace
 autocmd FileType c,cpp,java,php,python,javascript,html autocmd BufWritePre <buffer> :%s/\s\+$//e
